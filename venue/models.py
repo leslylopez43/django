@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-
 class Hall(models.Model):
     accommodation_id = models.AutoField(primary_key=True)
     weddings = models.BooleanField(default=False)
