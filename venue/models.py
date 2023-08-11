@@ -71,4 +71,6 @@ class BusinessOwner(models.Model):
     email = models.EmailField()
     vat = models.CharField(max_length=20)
 
+
+
     
