@@ -7,54 +7,40 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Accommodation Availability Form</h1>
-    <form action="submit_accommodation.php" method="post">
-        <h2>Hall Availability</h2>
-        <label for="hallAccommodationId">Accommodation ID:</label>
-        <input type="text" id="hallAccommodationId" name="hallAccommodationId" required><br>
-
-        <label for="weddings">Weddings:</label>
-        <input type="checkbox" id="weddings" name="weddings">
-        <label for="birthdays">Birthdays:</label>
-        <input type="checkbox" id="birthdays" name="birthdays"><br>
-
-        <label for="parties">Parties:</label>
-        <input type="checkbox" id="parties" name="parties">
-        <label for="babyShower">Baby Shower:</label>
-        <input type="checkbox" id="babyShower" name="babyShower"><br>
-
-        <label for="corporateEvents">Corporate Events:</label>
-        <input type="checkbox" id="corporateEvents" name="corporateEvents">
-        <label for="christmas">Christmas:</label>
-        <input type="checkbox" id="christmas" name="christmas"><br>
-
-        <label for="lifestylePhotoshoot">Lilmedshoot & Photoshoot:</label>
-        <input type="checkbox" id="lifestylePhotoshoot" name="lifestylePhotoshoot"><br><br>
-
-        <h2>Apartment Availability</h2>
-        <label for="apartmentAccommodationId">Accommodation ID:</label>
-        <input type="text" id="apartmentAccommodationId" name="apartmentAccommodationId" required><br>
-
-        <label for="checkIn">Check-in:</label>
-        <input type="datetime-local" id="checkIn" name="checkIn" required><br>
-
-        <label for="checkOut">Check-out:</label>
-        <input type="datetime-local" id="checkOut" name="checkOut" required><br>
-
-        <label for="guests">Guests:</label>
-        <input type="number" id="guests" name="guests" required><br>
-
-        <label for="rooms">Rooms:</label>
-        <input type="number" id="rooms" name="rooms" required><br>
-
-        <label for="apartmentAvailability">Apartment Availability:</label>
-        <select id="apartmentAvailability" name="apartmentAvailability" required>
-            <option value="available">Available</option>
-            <option value="unavailable">Unavailable</option>
-        </select><br><br>
-
-        <input type="submit" value="Submit">
-        <a href="/add">Add Bookings</a>
-    </form>
+    <h1>Accommodation Availability</h1>
+   {{Bookings}}
+    <table>
+        <h2>Halls</h2>
+        <ul>
+            {% for hall in halls %}
+            <li>
+                Accommodation ID: {{ hall.accommodation_id }}<br>
+                Weddings: {{ hall.weddings }}<br>
+                Birthdays: {{ hall.birthdays }}<br>
+                Parties: {{ hall.parties }}<br>
+                Baby Shower: {{ hall.baby_shower }}<br>
+                Corporate Events: {{ hall.corporate_events }}<br>
+                Christmas: {{ hall.christmas }}<br>
+                Lifestyle Photoshot: {{ hall.lifestyle_photoshot }}<br>
+            </li>
+            {% endfor %}
+        </ul>
+    
+        <!-- Display Apartments -->
+        <h2>Apartments</h2>
+        <ul>
+            {% for apartment in apartments %}
+            <li>
+                Accommodation ID: {{ apartment.accommodation_id }}<br>
+                Check-in: {{ apartment.check_in }}<br>
+                Check-out: {{ apartment.check_out }}<br>
+                Guests: {{ apartment.guests }}<br>
+                Rooms: {{ apartment.rooms }}<br>
+                Apartment Availability: {{ apartment.apartment_availability }}<br>
+            </li>
+            {% endfor %}
+        </ul>
+    </table>
+    <a href="/add">Add Bookings</a>
 </body>
 </html>

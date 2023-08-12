@@ -17,7 +17,7 @@ def get_bookings(request):
 def add_bookings(request):
     if request.method == 'POST':
         # Retrieve data from the form
-        hall_accommodation_id = request.POST.get('hallAccommodationId')
+        accommodation_id = request.POST.get('hallAccommodationId')
         weddings = request.POST.get('weddings') == 'on'
         birthdays = request.POST.get('birthdays') == 'on'
         parties = request.POST.get('parties') == 'on'
@@ -25,7 +25,6 @@ def add_bookings(request):
         corporate_events = request.POST.get('corporateEvents') == 'on'
         christmas = request.POST.get('christmas') == 'on'
         lifestyle_photoshoot = request.POST.get('lifestylePhotoshoot') == 'on'
-        
         apartment_accommodation_id = request.POST.get('apartmentAccommodationId')
         check_in = request.POST.get('checkIn')
         check_out = request.POST.get('checkOut')
@@ -33,26 +32,10 @@ def add_bookings(request):
         rooms = int(request.POST.get('rooms'))
         apartment_availability = request.POST.get('apartmentAvailability')
         
-        # Create a new Accommodation object and save it to the database
-        accommodation = Accommodation(
-            hall_accommodation_id=hall_accommodation_id,
-            weddings=weddings,
-            birthdays=birthdays,
-            parties=parties,
-            baby_shower=baby_shower,
-            corporate_events=corporate_events,
-            christmas=christmas,
-            lifestyle_photoshoot=lifestyle_photoshoot,
-            apartment_accommodation_id=apartment_accommodation_id,
-            check_in=check_in,
-            check_out=check_out,
-            guests=guests,
-            rooms=rooms,
-            apartment_availability=apartment_availability
-        )
-        accommodation.save()
+
 
         # Redirect to a success page or another view
-        return redirect('bookings')  # 
+        return redirect('get_bookings')  # Use the correct URL name for the bookings view
 
     return render(request, "venue/add_bookings.html")
+
