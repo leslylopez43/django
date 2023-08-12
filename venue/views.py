@@ -16,6 +16,8 @@ def get_bookings_list(request):
     }
     return render(request, "venue/bookings_list.html", context)
 
+def add_bookings(request):
+	return render(request, "venue/add_bookings_list.html",)
 
 
 
