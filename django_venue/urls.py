@@ -21,5 +21,5 @@ from  venue.views import get_bookings, add_bookings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', get_bookings, name='get_bookings'), 
-    path('add', add_bookings, name='add')  
+    path('add', add_bookings, name='add') 
 ]
