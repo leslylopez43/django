@@ -33,7 +33,6 @@ def add_bookings(request):
         apartment_availability = request.POST.get('apartmentAvailability')
         
 
-
         # Redirect to a success page or another view
         return redirect('get_bookings')  # Use the correct URL name for the bookings view
 
