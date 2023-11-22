@@ -14,3 +14,4 @@ def read_songs():
         print(eachRecord)
 if __name__ == "__main__":
     read_songs()
+    
