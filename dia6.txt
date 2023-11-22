@@ -1,4 +1,4 @@
-FilmFlix Python App with database 
+music Python App with database 
 
 Introduction 
 
